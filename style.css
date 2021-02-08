@@ -29,7 +29,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  min-height: 70vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
 }
@@ -39,7 +39,6 @@ a {
 }
 
 .content p {
-  font-size: 1.5rem;
   color: white;
   border: 3px solid white;
   font-family: Alata, sans-serif;
@@ -47,6 +46,7 @@ a {
   padding: 0.5em 1em;
   text-transform: uppercase;
   letter-spacing: 10px;
+  margin-top: 15px;
 }
 
 .mobile__menu {
@@ -97,8 +97,8 @@ h2 span {
 }
 
 .ar__text p {
-  width: 70%;
   color: hsl(0, 0%, 41%);
+  width: 85%;
 }
 
 .desktop {
@@ -295,11 +295,52 @@ footer {
 
 @media screen and (max-width: 280px) {
   .content p {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 320px) {
+  .content p {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 360px) {
+  .content p {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 411px) {
+  .content p {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .content p {
+    width: 70%;
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .content p {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 731px) {
+  .content p {
+    width: 52%;
   }
 }
 
 @media screen and (min-width: 768px) {
+  .bg__header {
+    background-image: url('./images/desktop/image-hero.jpg');
+    min-height: 500px;
+  }
+
   .mobile__menu {
     display: none;
   }
@@ -322,10 +363,6 @@ footer {
 
   .nav__item + .nav__item {
     margin-left: 1.5em;
-  }
-
-  .bg__header {
-    min-height: 50vh;
   }
 
   .content p {
@@ -451,11 +488,13 @@ footer {
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .bg__header {
-    background-image: url('./images/desktop/image-hero.jpg');
+@media screen and (min-width: 812px) {
+  .content p {
+    width: 50%;
   }
+}
 
+@media screen and (min-width: 1024px) {
   .content p {
     width: 55%;
     font-size: 3rem;
