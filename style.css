@@ -65,6 +65,10 @@ a {
   padding: 1.5em 0;
 }
 
+.nav__row img {
+  width: 60%;
+}
+
 .nav {
   display: none;
 }
@@ -348,6 +352,10 @@ footer {
     display: block;
   }
 
+  .nav__row img {
+    width: 75%;
+  }
+
   .nav__list {
     display: flex;
     align-items: center;
@@ -358,7 +366,7 @@ footer {
     color: hsl(0, 0%, 100%);
     text-transform: capitalize;
     font-weight: 700;
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
 
   .nav__item + .nav__item {
