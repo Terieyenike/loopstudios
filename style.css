@@ -28,10 +28,15 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
   align-items: center;
+  height: 50vh;
 }
 
 .content span {
@@ -46,31 +51,86 @@ a {
   padding: 0.5em 1em;
   text-transform: uppercase;
   letter-spacing: 10px;
-  margin-top: 15px;
-}
-
-.mobile__menu {
-  font-size: 2rem;
+  margin-top: 80px;
 }
 
 .nav__row {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #fff;
   padding: 1.5em 0;
 }
 
-.nav__row img {
-  width: 60%;
+.nav__row--header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.nav {
+.hamburger {
+  background: transparent;
+  color: white;
+  border: unset;
+}
+
+.hamburger:focus {
+  outline: unset;
+}
+
+.menu-btn__burger {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn__burger::before {
+  transform: translateY(-10px);
+}
+.menu-btn__burger::after {
+  transform: translateY(10px);
+}
+
+/* animation hamburger */
+.hamburger.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+}
+
+.hamburger.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.hamburger.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.nav__list li a {
+  display: inline-block;
+  color: hsl(0, 0%, 100%);
+}
+
+.nav__row img {
+  width: 65%;
+}
+
+.nav__list {
   display: none;
+}
+
+.nav__list.show {
+  display: block;
+}
+
+.nav__item a {
+  text-transform: uppercase;
+  font-size: 1.5rem;
 }
 
 /* section interactive vr */
@@ -169,9 +229,9 @@ h2 span {
 }
 
 .card:hover {
-  transform: scale(1.02);
   cursor: pointer;
   box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
 }
 
 .card:nth-child(1) {
@@ -345,21 +405,24 @@ footer {
     min-height: 500px;
   }
 
-  .mobile__menu {
+  .hamburger {
     display: none;
   }
-  .nav {
-    display: block;
+
+  .nav__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em 0;
   }
 
   .nav__row img {
-    width: 75%;
+    width: 80%;
   }
 
   .nav__list {
     display: flex;
     align-items: center;
-    margin: 0;
   }
 
   .nav__item a {
@@ -371,6 +434,11 @@ footer {
 
   .nav__item + .nav__item {
     margin-left: 1.5em;
+  }
+
+  .content {
+    height: 0;
+    display: unset;
   }
 
   .content p {
@@ -499,13 +567,14 @@ footer {
 @media screen and (min-width: 812px) {
   .content p {
     width: 50%;
+    font-size: 1.75rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .content p {
     width: 55%;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .row > .ar {
@@ -565,6 +634,10 @@ footer {
 @media screen and (min-width: 1200px) {
   .bg__header {
     min-height: 85vh;
+  }
+
+  .content p {
+    margin-top: 135px;
   }
 
   .section__a {
