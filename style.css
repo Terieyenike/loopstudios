@@ -6,6 +6,10 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3 {
@@ -31,6 +35,7 @@ a {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .content {
@@ -62,6 +67,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 999;
+  position: fixed;
+  width: 85%;
 }
 
 .hamburger {
@@ -121,16 +129,40 @@ a {
 }
 
 .nav__list {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+  color: white;
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+  list-style: none;
 }
 
-.nav__list.show {
+/* .nav__list.show {
   display: block;
-}
+} */
 
 .nav__item a {
   text-transform: uppercase;
   font-size: 1.5rem;
+}
+
+.nav__item + .nav__item {
+  margin-top: 1.5em;
+}
+
+/* mobile hamburger view */
+.showMenu {
+  transform: translateX(0);
 }
 
 /* section interactive vr */
@@ -420,9 +452,18 @@ footer {
     width: 80%;
   }
 
+  .nav__row--header {
+    position: unset;
+  }
+
   .nav__list {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    flex-direction: row;
+    padding: 1.5em 4em 1.5em 0;
+    transform: translateX(0);
+    background: transparent;
   }
 
   .nav__item a {
@@ -434,6 +475,7 @@ footer {
 
   .nav__item + .nav__item {
     margin-left: 1.5em;
+    margin-top: 0;
   }
 
   .content {
@@ -614,7 +656,7 @@ footer {
   footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .logo,
